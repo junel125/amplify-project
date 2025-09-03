@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amplify Collective</title>
+  <style>
+
+    body {
+      font-family:inter;
+      margin: 0;
+      font-size: 20px;
+      font-weight:600;
+      background: hwb(0 98% 2% / 0.205);
+      color: oklch(24.176% 0.09141 18.051 / 0.87);
+      line-height:1.6; 
+    }
+    a { text-decoration: none; color: inherit; }
+
+     
+     
+
+
+    nav {
+      background: hsl(317, 83%, 62%);
+      display: flex;
+      justify-content: center;
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      margin: 0 12px;
+      font-weight: bold;
+      color:white;
+      font-size: 0.95em;
+    }
+    nav a:hover { text-decoration: none; }
+    header {
+      text-align: center;
+      padding: 60px 20px 30px 20px;
+       color:  hsl(0, 0%, 8%);
+    }
+
+    header img.logo {
+      height: auto;    
+      margin-bottom: 20px; 
+      width: 150px;
+      float: left;
+      margin-right: 20px;
+    }
+   
+    header h1 {
+      font-size: 2.8em;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+      display: inline-block; 
+      padding-bottom: 10px;
+      text-align:right;
+      position: relative;
+    }
+
+      
+
+    
+   
+    main {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+   
+
+    .section-title {
+      font-weight: bold;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      text-align: center;
+      display: inline-block;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 10px;
+      background:#81d4fa;
+      border-radius: 60px;
+      transform: rotate(-1deg);
+    }
+    
+    .sub-title {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-top: 30px;
+      margin-bottom: 5px;
+      position: relative;
+    }
+    
+
+    .section-text {
+      font-size: 1em;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      padding-left: 25px;
+      margin: 8px 0;
+      list-style-type: none;
+    }
+    ul li::before {
+      content:'✔';
+      color: hsl(#81d4fa);
+      font-weight: bold;
+      display: inline-block;
+      width: 1.5em;
+    }
+
+    .cards {
+      display: flex;
+       flex-wrap: wrap;
+      gap: 18px;
+      justify-content: flex-start;
+    }
+    .card {
+      flex: 1 1 250px;
+      padding: 15px 20px;
+      border-radius: 100px;
+      box-shadow: 0 2px 6px hsla(0, 88%, 36%, 0.829);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      color: white;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+    }
+    
+    .card:nth-child(1) { background:#7e57c2}
+    .card:nth-child(2) { background: #81d4fa }
+    .card:nth-child(3) { background:#ef4ec1 }
+    
+ 
+    hr {
+      border: none;
+      height: 2px;
+      margin: 20px 0;
+      border-radius: 1px;
+    }
+
+  
+    footer {
+      text-align: center;
+      background: #080707ff;
+      color: white;
+      padding: 18px 10px;
+      font-size: 0.7em}
+
+   
+    @media(max-width: 600px){
+      header h1 { font-size: 2em; }
+      nav { flex-direction: column; }
+      nav a { margin: 6px 0; }
+
+
+    }
+   
+    .mission-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1px;
+  margin: 40px 0;
+}
+
+.mission-left {
+  flex: 1;
+  max-width: 55%;
+}
+
+.mission h2 {
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.mission-left  {
+  font-size: 1em;
+  color:none;
+  line-height: 1.5;
+}
+
+.mission-right {
+  flex: 1;
+  max-width: 40%;
+}
+
+.mission-right img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  margin-top: 20px;
+}
+
+
+@media (max-width: 768px) {
+  .mission-layout {
+    flex-direction: column;
+    text-align: center;
+  }
+  .mission-left, .mission-right {
+    max-width: 100%;
+  }
+  
+}
+
+.plain-mission{
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  margin-top: -20px;
+  align-items: flex-start; 
+}
+
+.plain-mission.mission-left {
+  text-align: left;
+  margin-left: 0;
+}
+
+.plain-mission.mission h2 {
+  margin-top: 0;
+}
+
+.subhead {
+  font-size: 1.0em;
+  font-style: italic;
+  font-weight:bold;
+  margin-top: 1px;
+  color: #333;
+  text-align: center;
+}
+
+.subhead-paragraph{
+  font-size:large;
+  font-style: normal;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px;
+  width: 1000px;
+
+
+  
+}
+.logo {
+  display: block;
+  margin: 0 auto 20px 0;
+  max-width: 150px; 
+  position: relative;
+}
+
+
+.highlight-para {
+  display: inline-block;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+
+
+.header-card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;   
+  padding: 20px;
+  background: #fff;
+ 
+  position: relative;
+}
+
+
+.logo-container {
+  position: absolute;
+  display: inline-block;
+  left: 20px;
+}
+
+.logo {
+  max-width: 140px;
+  display: block;
+}
+
+
+
+
+
+
+.header-text {
+  text-align: center;
+}
+
+
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  width: 300px;   
+  flex-shrink: 0; 
+}
+
+#services {
+  display: flex;
+  justify-content: center;
+  gap: 1px;
+  flex-wrap: nowrap; 
+  margin-top: 50px;
+
+  background: none;     
+  box-shadow: none;     
+  padding: 0;           
+}
+
+#how-amplify-works .mission-left {
+  flex: 1;
+  max-width: 45%;
+}
+
+#how-amplify-works .mission-left img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+#how-amplify-works .mission-right {
+  flex: 1;
+  max-width: 50%;
+}
+
+#how-amplify-works .mission-right h2 {
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 7px;
+  margin-top: 100;
+}
+
+#how-amplify-works .mission-right p {
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+
+@media (max-width: 768px) {
+  #how-amplify-works {
+    flex-direction: column;
+    text-align: center;
+  }
+  #how-amplify-works .mission-left,
+  #how-amplify-works .mission-right {
+    max-width: 100%;
+  }
+  #how-amplify-works .mission-left img {
+    margin-bottom: 20px;
+  }
+}
+
+
+#pricing {
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+  padding: 0,20px;
+  flex-direction: column;
+  align-items:center ;
+}
+#pricing .cards {
+  display: flex;
+  justify-content: center;
+  gap: 1px;
+  flex-wrap: nowrap; 
+}
+
+.card {
+
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  width: 300px;
+  margin-top: 20px;
+
+}
+#book-a-free-demo {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0;   
+
+       
+}
+
+.card.experience {
+  max-width: 1000px;      
+  width: 90%;             
+  padding: 40px 30px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #ef4ec1, #81d4fa, #7e57c2); 
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  margin-top: 100px;
+}
+
+
+
+.nav-button {
+  background: #7e57c2;        
+  color: white;                
+  padding: 8px 16px;           
+  border-radius: 8px;      
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.nav-button:hover {
+  background: #5e35b1;    
+
+}
+
+
+
+.demo-button {
+  background: linear-gradient(135deg, #ef4ec1, #81d4fa, #7e57c2); 
+  font-weight: bold;
+  font-size: 1em;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+
+.demo-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+}
+
+
+.mission-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px; 
+  margin-top: 40px; 
+  flex-wrap: wrap;
+}
+
+
+.mission-right img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  margin-top: 50px; 
+}
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#mission">Amplify</a>
+    <a href="#services">Services</a>
+    <a href="#pricing">pricing</a>
+    <a href="aboutme.html"class="nav-button">About Me</a> 
+    <a href="#book-demo-btn" class="nav-button">Book a Demo</a>
+
+    
+    
+    
+    
+  </nav>
+
+
+
+  <header class="header-card">
+     <div class="logo-container">
+    <img src="logo/logo.png" alt="Amplify Collective Logo" class="logo" /> 
+    </div>
+    <div class="header-text">
+    <h1>AMPLIFY COLLECTIVE
+    
+    </h1>
+    <h2 class="subhead">The smartest way to style,track and amplify your ticketing experience</p>
+     <p class="subhead-paragraph">
+    Transform your event ticketing into a fully branded, seamless journey. With Amplify ,you get expert styling, advanced tracking, and optional website design services that help you sell more and engage better.
+
+</p>
+    
+    </div>
+    </header>
+  <main>
+
+   
+
+<section id="mission" class="mission-layout plain-mission">
+  
+  
+
+  <div class="mission-left">
+    <h2>What is Amplify</h2>
+    <p class="highlight-para">
+      Amplify is our way of making sure your ticketing experience looks and feels like you. 
+      Whether its a simple polish with CSS or a full website redesign, our specialists help you 
+      deliver a seamless experience that inspires confidence and drives sales.
+    </p>
+  </div>
+  <div class="mission-right">
+    <img src="images/Theatre audience.jpg" alt="Amplify Visual">
+  </div>
+</section>
+
+    <section id="services">
+      
+
+      
+        <div class="card">
+          <p class="sub-title"> Website Design</p>
+        
+          <ul>
+            <li>Custom Website Design → Modern, mobile-first websites tailored to your brand</li>
+             <li>Redesign & Refresh → Update existing sites with cleaner layouts, faster performance, and improved UX</li>
+            <li>Event & Ticketing Integration → Seamless embeds, plugins, and checkout flows built in from day one.</li>
+             <li>Membership & Donation Features → Integrated forms, discounts, and donor pathways</li>
+             <li>CMS Development → WordPress, Drupal, Squarespace, or custom builds for easy management</li>
+             <li>Ongoing Support & Optimization → Security updates, speed tuning, and continuous improvements</li>
+            </ul>
+         
+        </div>
+        <div class="card">
+          <p class="sub-title"> Tracking & Analytics</p>
+          <ul>
+            <li>Google Analytics Setup → Configure GA4 to capture key ticketing and e-commerce data.</li>
+            <li>Conversion Tracking → Monitor purchases, donations, and abandoned carts with precision.</li>
+            <li>Google Tag Manager → Streamlined deployment of tags without ongoing dev support.</li> 
+            <li>Event Schema Markup → Structured data that boosts visibility in Google Search and event listings.</li>
+             <li>Custom Dashboards & Reports → Easy-to-read insights tailored to your marketing goals.</li>
+             <li>Retargeting & Audience Segmentation → Build smarter campaigns with CRM + GA data integration.</li>
+          </ul>
+          
+        </div>
+        <div class="card">
+          <p class="sub-title"> Styling, Embeds & Plugins</p>
+          <ul>
+            <li>Custom CSS Styling → Aligns ticketing pages and embeds with your brand’s colors, fonts, and layouts.</li>
+             <li>Advanced Embed Setup → Seamless integration into your website with mobile-first, responsive design.</li>
+             <li>Widgets & Add-Ons → Event lists, calendars, donation prompts, seat maps, and upsell tools.</li>         
+             <li>Plugin Support → Installation, customization, and ongoing maintenance for CMS platforms like WordPress.</li>
+             <li>White-Label Experiences → Fully branded checkout flows that feel native to your website.</li>
+          <li>Optimization & Accessibility → Mobile-ready, ADA-compliant adjustments for smoother patron experiences.</li> 
+
+  
+
+
+          </ul>
+
+          >
+        </div>
+       
+    </section>
+
+    <hr>
+
+   <section id="how-amplify-works" class="mission-layout plain-mission">
+  <div class="mission-left">
+    <img src="images/music-guitarplayer-2-1024x683.webp" alt="Amplify Visual">
+  </div>
+  <div class="mission-right">
+    <h2>How Amplify Works</h2>
+    <p class="highlight-para">
+     Amplify is built to scale with your needs. Every client starts with Amplify Basic clean, responsive 
+     styling for embeds included at onboarding. From there, you can upgrade to Amplify Premium anytime for advanced styling,
+     analytics, or website design. Our specialists handle the setup, management, and optimization so your team doesn’t have to.
+
+     <p>Simple to start. Flexible to grow. 
+
+</p>
+
+
+    </p>
+  </div>
+</section>
+
+    <section id="pricing">
+    <h2 class="section-title">Pricing</h2>
+  <div class="cards">
+    <div class="card">
+      <p class="sub-title">Styling & Embeds</p>
+      <ul>
+        <li>Basic Styling → Included at no charge with onboarding</li>
+        <li>Advanced CSS & Custom Embeds → Starting at $750 per project</li>
+        <li>Ongoing Styling Support → $250/month (optional retainer)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <p class="sub-title">Tracking & Analytics</p>
+       <ul>
+        <li>Google Analytics & Tag Manager Setup → $500 one-time</li>
+        <li>Schema Markup Implementation → $300 per event setup</li>
+        <li>Custom Dashboards & Reporting → $200/month (with quarterly reviews included)</li>
+       </ul>
+    </div>
+
+    <div class="card">
+      <p class="sub-title">Website design</p>
+       <ul>
+        <li>Website Refresh / Redesign → Starting at $3,500</li>
+        <li>Custom Website Build (ticketing-first) → Starting at $6,500</li>
+        <li>Ongoing Website Support & Optimization → $500/month</li>
+       </ul>
+    </div>
+  </div>
+</section>
+ 
+
+
+<section id="mission" class="mission-layout plain-mission">
+  
+  
+
+  <div class="mission-left">
+    <h2>Amplify your image</h2>
+    <p class="highlight-para">
+      Your brand deserves to look its best. With Amplify, every detail, from the way
+       your audience discovers you, to how they experience your events works together 
+       to showcase your organization at its finest. By booking a demo, you’ll see firsthand how
+        Amplify adapts to your unique needs, simplifies the complex, and empowers your team to deliver
+         unforgettable experiences. Don’t just imagine the possibilities....experience them!
+
+    </p>
+   <button id="book-demo-btn" class="demo-button" onclick="window.location.href='bookademo.html'">Book a demo
+  
+</button>
+
+   
+  
+    
+
+  </div>
+  <div class="mission-right">
+    <img src="images/tower-of-Power.jpg" alt="Amplify Visual">
+  </div>
+   
+
+
+  </main>
+
+
+  <footer>
+    <p> 2025 Amplify Collective Co </p>
+  </footer>
+
+</body>
+</html    
+
+  
+
+
+          
+
+   
+      
+
+      
+
+
+
+
+   
+
